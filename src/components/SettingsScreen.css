@@ -1,0 +1,11 @@
+html {
+	/* 選択禁止 */
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.profile-screen {
+    padding: 20px;
+  }

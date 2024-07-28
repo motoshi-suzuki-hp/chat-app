@@ -1,0 +1,105 @@
+html {
+	/* 選択禁止 */
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  background-image: url(./background.jpg);
+  background-size: cover;
+  background-color:rgba(255, 255, 255, 0.5);
+  background-blend-mode:lighten;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+
+  display: flex;
+  margin: auto;
+
+}
+
+.content > div {
+  float: left;
+  width: calc(100vw / 3 - 20px);
+  border: solid 1px #ddd;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.content > div:nth-child(2) {
+  width: calc(100vw / 3 + 40px);
+}
+
+/* chrome */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: gray;
+}
+
+
+
+.message {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: .5em 1em;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #ffffff;
+}
+
+.message:before {
+  content: "";
+  position: absolute;
+  top: 1.5em;
+  left: -1em;
+  margin-top: -15px;
+  border: .5em solid transparent;
+  border-right: .5em solid #ffffff;
+  border-top: .5em solid #ffffff;
+}
+
+.bottom-menu {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.bottom-menu-content {
+  text-align: center;
+  width: 50vw;
+}
+
+.bottom-menu-content button {
+  background-color: #ffffff;
+  border: none;
+  width: 100%;
+}
+
+
+.bottom-menu-content button svg {
+  height: 2em;
+}
+.bottom-menu-content button p {
+  margin-top: .2em;
+}
+

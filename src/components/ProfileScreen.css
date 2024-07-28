@@ -1,0 +1,85 @@
+html {
+	/* 選択禁止 */
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.profile-screen {
+    padding: 30px 70px;
+}
+
+.profile-image {
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    
+}
+
+.profile-image img {
+    width: 70%;
+    /* 保存禁止 */
+	pointer-events: none;
+    
+}
+
+.name {
+    margin: 1em 0 1em;
+}
+.name h2 {
+    color: #9E3EB1;
+    font-size: 3em;
+    font-weight: 550;
+
+    width: fit-content;
+    letter-spacing: .12em;
+}
+
+.name p {
+    color: #CD9DF8;
+    width: fit-content;
+}
+
+.name p span {
+    margin: 0 2em;
+    font-size: .8em;
+    vertical-align: middle;
+}
+
+.table {
+    color: #9E3EB1;
+    text-align: left;
+    margin: 1em 0 1em;
+}
+
+.table dl {
+    display: flex;
+    line-height: 2em;
+}
+
+.table dl dt {
+    width: 8em;
+}
+.table dl dd {
+    width: 15em;
+}
+
+.alternative {
+    color: #9E3EB1;
+}
+.alternative ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+.alternative ul li {
+    color: #9E3EB1;
+    text-align: center;
+    width: 8em;
+    padding: .25em;
+    font-size: .75em;
+    border: solid 1px #9E3EB1;
+    margin-right: .5em;
+}
