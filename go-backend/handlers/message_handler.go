@@ -12,6 +12,7 @@ type Message struct {
 	ID      int    `json:"id"`
 	Content string `json:"content"`
 	Type    string `json:"type"` // "text", "image", "video", "audio"など
+	Masked    bool   `json:"masked"`
 }
 
 var messages []Message
@@ -66,6 +67,7 @@ func CreateMessage(w http.ResponseWriter, r *http.Request) {
 	}
 	mu.Lock()
 	msg.ID = len(messages) + 1
+	msg.Masked = true
 	messages = append(messages, msg)
 	mu.Unlock()
 	w.WriteHeader(http.StatusCreated)

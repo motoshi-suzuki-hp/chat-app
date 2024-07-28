@@ -56,7 +56,7 @@ html {
 
 .message {
   position: relative;
-  display: inline-block;
+  display: block;
   margin: 1.5em 0 1.5em 15px;
   padding: .5em 1em;
   min-width: 120px;

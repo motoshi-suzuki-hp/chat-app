@@ -43,3 +43,30 @@ img {
     100% { opacity: 1; }
   }
   
+
+  .masked-message {
+    background-color: #f0f0f0;
+    padding: 1em;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    color: #ffffff;
+    /* border: 1px dashed #aaa; */
+  }
+
+  .background-color-message {
+    background-color: rgba(122, 93, 235, 0.75);
+  }
+
+
+  .background-color-audio {
+    background-color: rgba(180, 85, 235, 0.75);
+  }
+
+  .background-color-video {
+    background-color: rgba(235, 93, 150, 0.75);
+  }
+
+  .background-color-photo {
+    background-color: rgba(219, 72, 175, 0.75);
+  }

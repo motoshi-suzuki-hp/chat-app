@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import ReactPlayer from 'react-player';
 import { Howl } from 'howler';
 import '../reset.css';
 import './ChatScreen.css';
+import { faMessage, faImage, faFilm, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
+
+
 
 interface Message {
   id: number;
   content: string;
   type: string;
+  masked: boolean;
 }
 
 const playCallSound = () => {
@@ -45,20 +51,37 @@ const ChatScreen: React.FC = () => {
     fetchMessages();
   }, []);
 
+  const handleUnmaskMessage = (id: number) => {
+    setMessages(messages.map(msg => 
+      msg.id === id ? { ...msg, masked: false } : msg
+    ));
+  };
+
   return (
     <div className="chat-screen">
-      {messages ? (
-        messages.map((msg) => (
-          <div key={msg.id} className="message">
-            {msg.type === 'text' && <p>{msg.content}</p>}
-            {msg.type === 'image' && <img src={msg.content} alt="example" className="chat-image" />}
-            {msg.type === 'video' && <ReactPlayer url={msg.content} controls={true} className="chat-video" />}
-            {msg.type === 'audio' && <audio controls src={msg.content} />}
-          </div>
-        ))
-      ) : (
-        <p>Loading messages...</p>
-      )}
+      {messages.map((msg) => (
+        <div 
+          key={msg.id} 
+          className="message"
+          onClick={() => handleUnmaskMessage(msg.id)}
+        >
+          {msg.masked ? (
+            <>
+              {msg.type === 'text' && <div className="masked-message background-color-message"><FontAwesomeIcon icon={faMessage} /></div>}
+              {msg.type === 'image' && <div className="masked-message background-color-photo"><FontAwesomeIcon icon={faImage} /></div>}
+              {msg.type === 'video' && <div className="masked-message background-color-video"><FontAwesomeIcon icon={faFilm} /></div>}
+              {msg.type === 'audio' && <div className="masked-message background-color-audio"><FontAwesomeIcon icon={faPhoneVolume} /></div>}
+            </>            
+          ) : (
+            <>
+              {msg.type === 'text' && <p>{msg.content}</p>}
+              {msg.type === 'image' && <img src={msg.content} alt="example" className="chat-image" />}
+              {msg.type === 'video' && <ReactPlayer url={msg.content} controls={true} className="chat-video" />}
+              {msg.type === 'audio' && <audio controls src={msg.content} />}
+            </>
+          )}
+        </div>
+      ))}
     </div>
   );
 };
